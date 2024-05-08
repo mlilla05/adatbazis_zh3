@@ -1,0 +1,2 @@
+2. feladat:
+db.users.find({"email":{$regex:/.com/}},{"name": 1, "email": 1})

@@ -1,0 +1,6 @@
+1. feladat:
+filter: {"countries.0": "USA", "imdb.rating": {$gte: 5}}
+
+project: {"title": 1, "countries": 1, "imdb.rating": 1, "_id": 0}
+
+sort: {"imdb.rating": -1}

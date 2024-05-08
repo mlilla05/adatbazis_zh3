@@ -1,0 +1,2 @@
+3. feladat:
+db.movies.aggregate([{$match: {"$year": {$gt: 1950}}},{$group:{_id: "$rated", atlag: {$avg: "$runtime"}}}])

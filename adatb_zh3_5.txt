@@ -1,0 +1,11 @@
+5. feladat:
+A neo4j Sandbox-ban (vagy a Desktop-ban) csatlakozzon a Movies adatbázishoz, és kérdezze le a következő SQL-lekérdezésnek megfelelő adatokat:
+
+SELECT p.name AS Actor, p.born AS BirthYear, COUNT(m.title) AS NumMoviesActedIn
+FROM Person p
+    JOIN ACTED_IN ai ON p.name = ai.actor_name
+    JOIN Movie m ON ai.movie_title = m.title
+WHERE p.born > 1980
+GROUP BY p.name, p.born
+
+match(p:Person)-[:ACTED_IN]->(m:Movie) where p.born> 1980 with p.name as `Actor`, p.born as `BirthYear`, m.title as `Title` return Actor, BirthYear, count(Title) as `NumMoviesActedIn`

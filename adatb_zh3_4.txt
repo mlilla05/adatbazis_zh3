@@ -1,0 +1,11 @@
+4. feladat:
+Csatlakozzon a Movies adatbázishoz a Neo4J Sandbox-ban (vagy a Desktop-ban), és kérdezze le a következőket:
+
+Listázzuk a filmek címét és szereplőit
+Csak a szereplő neve és a film cím jelenjen meg
+Szűrjünk az 1970 utáni évekre VAGY azokra a filmekre, amelyek címében a "Love" szó szerepel
+Nevezzük el a megjelenített mezőket
+Rendezzük sorba az eredményt cím szerint csökkenően!
+Beadandó: a megfelelő utasítás
+
+match(p:Person)-[:ACTED_IN]->(m:Movie) where m.released>1970 or m.title contains 'Love' return m.title as `cím`, p.name as `név` order by cím desc
